@@ -42,4 +42,10 @@ public class UserController {
         return userService.updateUser(userId,user);
     }
 
+    /* DELETE USER: Access by sending a GET request to http://localhost:8080/users/12 with a JSON Body */
+    @DeleteMapping("/users/{userId}")
+    public String deleteUser(@PathVariable Integer userId){
+        return userService.deleteUser(userId);
+    }
+
 }
