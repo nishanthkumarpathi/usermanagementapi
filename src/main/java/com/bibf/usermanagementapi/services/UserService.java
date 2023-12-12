@@ -26,4 +26,11 @@ public class UserService {
         return userDatabase;
     }
 
+    // Step 3: Create a method to add the user to the database ArrayList
+    public User addUser(User user) {
+        // add the user to the database and return the user
+        userDatabase.add(user);
+        return user;
+    }
+
 }
