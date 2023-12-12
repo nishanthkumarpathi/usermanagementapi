@@ -4,10 +4,7 @@ import com.bibf.usermanagementapi.models.User;
 import com.bibf.usermanagementapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,13 @@ public class UserController {
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable("id") Integer userId){
         return userService.getUser(userId);
+    }
+
+    /* ADD USER: Access by sending a POST request to http://localhost:8080/users with a JSON Body */
+    @PostMapping("/users")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User addUser(@RequestBody User user){
+        return userService.addUser(user);
     }
 
 }
