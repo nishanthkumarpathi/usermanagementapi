@@ -36,4 +36,10 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    /* UPDATE USER: Access by sending a PUT request to http://localhost:8080/users/12 with a JSON Body */
+    @PutMapping("/users/{userId}")
+    public User updateUser(@PathVariable Integer userId, @RequestBody User user){
+        return userService.updateUser(userId,user);
+    }
+
 }
