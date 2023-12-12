@@ -1,21 +1,29 @@
 package com.bibf.usermanagementapi.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-@Component
+@Entity /* Marks the class as a database table */
+@Table(name = "users")
+@Data // PART2.5: @Getter + @Setter + @ToString + @RequiredArgsConstructor + @EqualsAndHashCode
 @AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+@NoArgsConstructor //Required for instantiating an empty object and filling it up in inputs.
 public class User {
+
+    @Id /* Set this property as the main table ID column */
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* Generate this value automatically based on DB type */
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(unique = true, nullable = false) /* Set this property to be unique (in DB)*/
     private String email;
+
+    @Column(nullable = false)
     private String password;
+
 }
 
 
