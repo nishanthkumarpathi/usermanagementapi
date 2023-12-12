@@ -20,6 +20,10 @@ public class UserService {
         userDatabase.add(new User(5, "David Chen", "davidchen@example.com", "passworddef"));
     }
 
-
+    // Step 2: Create a method to fetch all users from the database
+    public List<User> getUsers() {
+        // fetch all users and return them
+        return userDatabase;
+    }
 
 }
