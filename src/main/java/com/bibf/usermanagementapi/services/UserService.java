@@ -60,7 +60,14 @@ public class UserService {
         } else {
             return "User with id " + userId + " not found";
         }
+    }
 
+    public User getUserByEmail(String email) {
+        // get user by email from database
+        return userDatabase.stream()
+                .filter(user -> user.getEmail().equals(email))
+                .findFirst()
+                .orElse(null);
     }
 
 }
