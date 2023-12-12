@@ -1,10 +1,9 @@
-### Part 1 is Completed.
+### Part 2 is Started
 
-Here is what we covered in Part 1:
-
-- [x] Creating a Model for our Data
-  - [x] Data is stored in a ArrayList
-- [x] Creating a Service for our Model
-- [x] Creating a Controller for our Service
+- [x] Update application.properties with Database Details
+- [x] Create a Model Class with Annotations
+- [x] Create a Repository Interface
+- [x] Create a Service Class
+- [x] Create a Controller Class
 
 
