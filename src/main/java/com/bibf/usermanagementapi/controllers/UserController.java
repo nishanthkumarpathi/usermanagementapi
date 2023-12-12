@@ -5,6 +5,7 @@ import com.bibf.usermanagementapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +26,10 @@ public class UserController {
         return userService.getUsers();
     }
 
+    /* GET ONE: Access by sending a GET request to http://localhost:8080/users/12 */
+    @GetMapping("/users/{id}")
+    public User getUser(@PathVariable("id") Integer userId){
+        return userService.getUser(userId);
+    }
 
 }
