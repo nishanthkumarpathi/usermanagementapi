@@ -33,4 +33,24 @@ public class UserService {
         return user;
     }
 
+    // Step 4: updateUser method to update the user in the database
+
+    public User getUser(Integer userId) {
+        // fetch user from database
+        return userDatabase.stream()
+                .filter(user -> user.getId().equals(userId))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public User updateUser(Integer userId, User user) {
+        // fetch user with userId, update it and return the new user
+        User existingUser = getUser(userId);
+        if(existingUser == null){return null;}
+        if(user.getName() != null) {existingUser.setName(user.getName());}
+        if(user.getEmail() != null) {existingUser.setEmail(user.getEmail());}
+        if(user.getPassword() != null) {existingUser.setPassword(user.getPassword());}
+        return existingUser;
+    }
+
 }
