@@ -53,4 +53,14 @@ public class UserService {
         return existingUser;
     }
 
+    public String deleteUser(Integer userId) {
+        // delete user with userId, return success.
+        if( userDatabase.removeIf(user -> userId.equals(user.getId())) ){
+            return "User with id " + userId + " deleted successfully!";
+        } else {
+            return "User with id " + userId + " not found";
+        }
+
+    }
+
 }
