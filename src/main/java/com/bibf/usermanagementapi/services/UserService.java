@@ -21,7 +21,11 @@ public class UserService {
     }
 
     public List<User> getUsers() {
-        return userRepository.findAll();
+        List<User> users = userRepository.findAll();
+        if(users.isEmpty()) {
+            throw new RuntimeException("No Users Found");
+        }
+        return users;
     }
 
     public User getUser(Integer userId) {
