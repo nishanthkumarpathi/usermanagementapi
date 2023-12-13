@@ -22,4 +22,11 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    /* GET ALL: Access by sending a GET request to http://localhost:8080/users */
+    @GetMapping("/users")
+    @ResponseStatus(HttpStatus.ACCEPTED) //not necessary as it is the default response.
+    public List<User> getUsers(){
+        return userService.getUsers();
+    }
+
 }
