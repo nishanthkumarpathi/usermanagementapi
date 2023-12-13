@@ -4,12 +4,14 @@ import com.bibf.usermanagementapi.models.User;
 import com.bibf.usermanagementapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 // @RestController annotation is used to create RESTful web services using Spring MVC
 @RestController
+@Validated
 public class UserController {
 
     // @Autowired annotation is used for automatic dependency injection.

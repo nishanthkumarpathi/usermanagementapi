@@ -1,6 +1,9 @@
 package com.bibf.usermanagementapi.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +20,17 @@ public class User {
 
     @Column(nullable = false)
     @NotBlank(message = "A Name is required")
+    @Size(max = 25,message = "The Name must be at most 25 characters")
     private String name;
 
     @Column(unique = true, nullable = false) /* Set this property to be unique (in DB)*/
+    @NotBlank(message = "Email is Mandatory")
+    @Email(message = "Please enter a valid email address")
     private String email;
 
     @Column(nullable = false)
+    @NotBlank(message = "Password is Mandatory")
+    @Size(min = 8,message = "The password must contain at least 8 characters")
     private String password;
 
 }
