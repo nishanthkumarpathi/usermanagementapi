@@ -29,4 +29,10 @@ public class UserController {
         return userService.getUsers();
     }
 
+    /* GET ONE: Access by sending a GET request to http://localhost:8080/users/12 */
+    @GetMapping("/users/{id}")
+    public User getUser(@PathVariable("id") Integer userId){
+        return userService.getUser(userId);
+    }
+
 }

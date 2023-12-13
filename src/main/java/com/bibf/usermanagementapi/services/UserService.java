@@ -24,4 +24,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUser(Integer userId) {
+        //return userRepository.findById(userId).get();
+        return userRepository.findById(userId).orElseThrow();
+    }
+
 }
