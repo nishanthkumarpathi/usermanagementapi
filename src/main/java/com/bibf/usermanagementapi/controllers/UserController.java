@@ -41,5 +41,13 @@ public class UserController {
         return userService.updateUser(userId,user);
     }
 
+    /* GET USER BY EMAIL: Access by sending a GET request to http://localhost:8080/users/email/hamad@gmail.com */
+    @GetMapping("/users/email/{email}")
+    public User getUserByEmail(@PathVariable("email") String email){
+        return userService.getUserByEmail(email);
+    }
+
+
+
 
 }

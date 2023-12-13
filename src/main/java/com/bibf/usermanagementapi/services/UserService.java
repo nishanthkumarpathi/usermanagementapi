@@ -41,6 +41,11 @@ public class UserService {
         return userRepository.save(existingUser);
     }
 
+    public User getUserByEmail(String email) {
+        // get user by email from database
+        return userRepository.findByEmail(email).orElseThrow();
+
+    }
 
 
 }
