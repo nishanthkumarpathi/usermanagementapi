@@ -11,7 +11,6 @@ import java.util.List;
 
 // @RestController annotation is used to create RESTful web services using Spring MVC
 @RestController
-@Validated
 public class UserController {
 
     // @Autowired annotation is used for automatic dependency injection.
