@@ -29,4 +29,18 @@ public class UserService {
         return userRepository.findById(userId).orElseThrow();
     }
 
+    public User updateUser(Integer userId, User user) {
+        User existingUser = getUser(userId);
+
+        if(user.getName() != null) {existingUser.setName(user.getName());}
+        if(user.getEmail() != null) {existingUser.setEmail(user.getEmail());}
+        if(user.getPassword() != null) {existingUser.setPassword(user.getPassword());}
+
+        //TODO: Add Validation
+
+        return userRepository.save(existingUser);
+    }
+
+
+
 }
