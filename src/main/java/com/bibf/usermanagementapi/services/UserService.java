@@ -1,5 +1,6 @@
 package com.bibf.usermanagementapi.services;
 
+import com.bibf.usermanagementapi.exceptions.MySpecialException;
 import com.bibf.usermanagementapi.models.User;
 import com.bibf.usermanagementapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class UserService {
     public List<User> getUsers() {
         List<User> users = userRepository.findAll();
         if(users.isEmpty()) {
-            throw new RuntimeException("No Users Found");
+            throw new MySpecialException("No Users Found");
         }
         return users;
     }
