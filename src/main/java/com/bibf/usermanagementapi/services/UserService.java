@@ -35,17 +35,19 @@ public class UserService {
         if(user.getName() != null) {existingUser.setName(user.getName());}
         if(user.getEmail() != null) {existingUser.setEmail(user.getEmail());}
         if(user.getPassword() != null) {existingUser.setPassword(user.getPassword());}
-
         //TODO: Add Validation
-
         return userRepository.save(existingUser);
     }
 
     public User getUserByEmail(String email) {
         // get user by email from database
         return userRepository.findByEmail(email).orElseThrow();
-
     }
 
+    public String deleteUser(Integer userId) {
+        // delete user with userId, return success.
+        userRepository.deleteById(userId);
+        return "User with id " + userId + " deleted successfully!";
+    }
 
 }
