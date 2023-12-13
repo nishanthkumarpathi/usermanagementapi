@@ -16,6 +16,7 @@ public class User {
     private Integer id;
 
     @Column(nullable = false)
+    @NotBlank(message = "A Name is required")
     private String name;
 
     @Column(unique = true, nullable = false) /* Set this property to be unique (in DB)*/
