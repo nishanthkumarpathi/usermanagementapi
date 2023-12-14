@@ -1,5 +1,6 @@
 package com.bibf.usermanagementapi.exceptions;
 
+import com.bibf.usermanagementapi.responses.SimpleErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
