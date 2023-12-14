@@ -18,23 +18,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) /* Generate this value automatically based on DB type */
     private Integer id;
 
-    @Column(nullable = false)
-    @NotBlank(message = "A Name is required")
-    @Size(max = 25,message = "The Name must be at most 25 characters")
+//    @Column(nullable = false)
+//    @NotBlank(message = "A Name is required")
+//    @Size(max = 25,message = "The Name must be at most 25 characters")
     private String name;
 
-    @Column(unique = true, nullable = false) /* Set this property to be unique (in DB)*/
-    @NotBlank(message = "Email is Mandatory")
-    @Email(message = "Please enter a valid email address")
+//    @Column(unique = true, nullable = false) /* Set this property to be unique (in DB)*/
+//    @NotBlank(message = "Email is Mandatory")
+//    @Email(message = "Please enter a valid email address")
     private String email;
 
-    @Column(nullable = false)
-    @NotBlank(message = "Password is Mandatory")
-    @Size(min = 8,message = "The password must contain at least 8 characters")
+//    @Column(nullable = false)
+//    @NotBlank(message = "Password is Mandatory")
+//    @Size(min = 8,message = "The password must contain at least 8 characters")
     private String password;
 
 }
-
 
 // @Component Annotation is used to create a Bean of the Class
 // @AllArgsConstructor Annotation is used to create a Constructor with all the Fields in the Class
