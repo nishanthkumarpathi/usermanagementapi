@@ -3,6 +3,7 @@ package com.bibf.usermanagementapi.services;
 import com.bibf.usermanagementapi.exceptions.MySpecialException;
 import com.bibf.usermanagementapi.models.User;
 import com.bibf.usermanagementapi.repositories.UserRepository;
+import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +18,14 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+
     public User addUser(User user) {
         //ADDED: #1 The user repository save() method is easy!
+        if(userRepository.findByEmail(user.getEmail()).isPresent()){
+            throw new NoSuchElementException("The Email " + user.getEmail() + " is already used.");
+        }
         return userRepository.save(user);
     }
-
     public List<User> getUsers() {
         List<User> users = userRepository.findAll();
         // #1 throw an exception if there are no results
@@ -30,7 +34,6 @@ public class UserService {
         }
         return users;
     }
-
     public User getUser(Integer userId) {
         //return userRepository.findById(userId).get();
         // #2 throw exception if the user is not found
