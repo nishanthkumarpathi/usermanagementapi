@@ -1,9 +1,7 @@
-### Part 2 is Started
+### Part 3 is Partially Completed
 
-- [x] Update application.properties with Database Details
-- [x] Create a Model Class with Annotations
-- [x] Create a Repository Interface
-- [x] Create a Service Class
-- [x] Create a Controller Class
+- [x] Added Exceptions, SimpleError and Complex Error
+- [x] Added new Request Validation at the Controller Level
 
+Partially Completed
 
