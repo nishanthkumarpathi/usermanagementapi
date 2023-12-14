@@ -1,6 +1,7 @@
 package com.bibf.usermanagementapi.controllers;
 
 import com.bibf.usermanagementapi.models.User;
+import com.bibf.usermanagementapi.requests.UserRequest;
 import com.bibf.usermanagementapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class UserController {
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public User addUser(@RequestBody User user){
+    public User addUser(@RequestBody UserRequest user){
         return userService.addUser(user);
     }
 

@@ -33,6 +33,8 @@ public class User {
 //    @Size(min = 8,message = "The password must contain at least 8 characters")
     private String password;
 
+    public User(String name, String email, String password) {
+    }
 }
 
 // @Component Annotation is used to create a Bean of the Class

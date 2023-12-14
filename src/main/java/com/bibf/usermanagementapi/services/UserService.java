@@ -3,11 +3,10 @@ package com.bibf.usermanagementapi.services;
 import com.bibf.usermanagementapi.exceptions.MySpecialException;
 import com.bibf.usermanagementapi.models.User;
 import com.bibf.usermanagementapi.repositories.UserRepository;
-import jakarta.validation.Validator;
+import com.bibf.usermanagementapi.requests.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -19,12 +18,19 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public User addUser(User user) {
+    public User addUser(UserRequest user) {
         //ADDED: #1 The user repository save() method is easy!
         if(userRepository.findByEmail(user.getEmail()).isPresent()){
             throw new NoSuchElementException("The Email " + user.getEmail() + " is already used.");
         }
-        return userRepository.save(user);
+
+        // UserRequest Validation is added, however this validation is comming from controller
+        // Now the Model does not have any validation and model cant accept the structure of the request
+        // because the model has integer id, which is not available in UserRequest Model
+
+        User newUser = new User(user.getName(), user.getEmail(), user.getPassword());
+
+        return userRepository.save(newUser);
     }
     public List<User> getUsers() {
         List<User> users = userRepository.findAll();
