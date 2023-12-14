@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 // @Service annotation is used to mark the class as a service provider
 @Service
@@ -23,6 +24,7 @@ public class UserService {
 
     public List<User> getUsers() {
         List<User> users = userRepository.findAll();
+        // #1 throw an exception if there are no results
         if(users.isEmpty()) {
             throw new MySpecialException("No Users Found");
         }
@@ -31,7 +33,8 @@ public class UserService {
 
     public User getUser(Integer userId) {
         //return userRepository.findById(userId).get();
-        return userRepository.findById(userId).orElseThrow();
+        // #2 throw exception if the user is not found
+        return userRepository.findById(userId).orElseThrow(() -> new NoSuchElementException("The user with ID:" + userId + " not found."));
     }
 
     public User updateUser(Integer userId, User user) {
